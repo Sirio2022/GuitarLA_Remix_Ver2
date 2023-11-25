@@ -1,6 +1,26 @@
 import styles from '../styles/nosotros/styles.module.css';
 import imagen from '../../public/img/nosotros.jpg';
 
+export function meta() {
+  return [
+    {
+      title: 'GuitarLA - Nosotros',
+    },
+    {
+      name: 'description',
+      content: 'GuitarLA, nosotros, venta de guitarras de alta gama',
+    },
+    {
+      name: 'keywords',
+      content: 'GuitarLA,nosotros',
+    },
+  ];
+}
+
+export function links() {
+  return [{ rel: 'preload', as: 'image', href: imagen }];
+}
+
 export default function Nosotros() {
   return (
     <main className={`contenedor ${styles.nosotros}`}>
@@ -24,24 +44,4 @@ export default function Nosotros() {
       </div>
     </main>
   );
-}
-
-export function meta() {
-  return [
-    {
-      title: 'GuitarLA - Nosotros',
-    },
-    {
-      name: 'description',
-      content: 'GuitarLA, nosotros, venta de guitarras de alta gama',
-    },
-    {
-      name: 'keywords',
-      content: 'GuitarLA,nosotros',
-    },
-  ];
-}
-
-export function links() {
-  return [{ rel: 'preload', as: 'image', href: imagen }];
 }

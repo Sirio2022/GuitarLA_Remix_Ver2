@@ -5,6 +5,10 @@ import styles from './styles.module.css';
 import logo from '../../../public/img/logo.svg';
 import Navegacion from '../navegacion/navegacion';
 
+export function links() {
+  return [{ rel: 'preload', as: 'image', href: logo }];
+}
+
 export default function Header() {
   return (
     <header className={styles.header}>
@@ -16,8 +20,4 @@ export default function Header() {
       </div>
     </header>
   );
-}
-
-export function links() {
-  return [{ rel: 'preload', as: 'image', href: logo }];
 }
