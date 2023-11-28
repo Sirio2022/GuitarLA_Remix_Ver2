@@ -34,8 +34,6 @@ export default function App() {
 }
 
 export function meta() {
-
-  
   return [
     {
       title: 'GuitarLA - Remix',

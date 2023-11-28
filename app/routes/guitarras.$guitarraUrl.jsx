@@ -18,22 +18,6 @@ export const loader = async ({ params }) => {
 };
 
 export const meta = ({ data }) => {
-  if (!data) {
-    return [
-      {
-        title: 'GuitarLA - Guitarra no encontrada',
-      },
-      {
-        name: 'description',
-        content: 'GuitarLA, remix, venta de guitarras de alta gama',
-      },
-      {
-        name: 'keywords',
-        content: 'GuitarLA,remix',
-      },
-    ];
-  }
-
   return [
     {
       title: ` ${data[0].attributes.nombre} - GuitarLA`,
