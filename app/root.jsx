@@ -1,4 +1,12 @@
-import { Links, Meta, Outlet, Scripts, LiveReload } from '@remix-run/react';
+import {
+  Links,
+  Meta,
+  Outlet,
+  Scripts,
+  LiveReload,
+  useRouteError,
+  isRouteErrorResponse,
+} from '@remix-run/react';
 import { cssBundleHref } from '@remix-run/css-bundle';
 
 import normalize from './styles/normalize.css';
@@ -26,6 +34,8 @@ export default function App() {
 }
 
 export function meta() {
+
+  
   return [
     {
       title: 'GuitarLA - Remix',
@@ -47,4 +57,19 @@ export function links() {
     { rel: 'stylesheet', href: styles },
     { rel: 'stylesheet', href: cssBundleHref },
   ];
+}
+
+/* Manejo de errores*/
+export function ErrorBoundry() {
+  const error = useRouteError();
+  if (isRouteErrorResponse(error)) {
+    return (
+      <div>
+        <h1>ERROR</h1>
+        <p>{error.status}</p>
+        <p>{error.statusText}</p>
+      </div>
+    );
+  }
+  return null;
 }

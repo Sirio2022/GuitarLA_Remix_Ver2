@@ -3,6 +3,22 @@ import { getGuitarras } from '~/models/guitarras.server';
 import styles from '~/styles/tienda/styles.module.css';
 import Guitarra from '~/components/guitarra/guitarra';
 
+export function meta() {
+  return [
+    {
+      title: 'GuitarLA - Tienda',
+    },
+    {
+      name: 'description',
+      content: 'GuitarLA, tienda, venta de guitarras de alta gama',
+    },
+    {
+      name: 'keywords',
+      content: 'GuitarLA,tienda',
+    },
+  ];
+}
+
 export async function loader() {
   const respuesta = await getGuitarras();
 

@@ -1,0 +1,16 @@
+.guitarras_grid {
+    display: grid;
+    gap: 4rem;
+}
+
+@media (min-width: 768px) {
+    .guitarras_grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .guitarras_grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
