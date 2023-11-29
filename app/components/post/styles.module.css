@@ -1,5 +1,5 @@
 .post {
-    background-color: rgb(233, 232, 238);
+    background-color: rgba(232, 236, 238, 0.826);
     border-radius: 0.5rem;
     box-shadow: 0 0 1rem rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
