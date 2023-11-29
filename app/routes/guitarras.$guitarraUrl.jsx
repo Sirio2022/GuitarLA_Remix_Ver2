@@ -20,11 +20,11 @@ export const loader = async ({ params }) => {
 export const meta = ({ data }) => {
   return [
     {
-      title: ` ${data[0].attributes.nombre} - GuitarLA`,
+      title: `${data[0].attributes.nombre} - GuitarLA`,
     },
     {
       name: 'description',
-      content: ` ${data[0].attributes.nombre} - GuitarLA`,
+      content: `${data[0].attributes.nombre} - GuitarLA`,
     },
     {
       name: 'keywords',

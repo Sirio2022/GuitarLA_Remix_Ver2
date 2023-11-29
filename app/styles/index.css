@@ -42,3 +42,24 @@ main {
   color: var(--primary);
   margin: 5rem 0;
 }
+
+.error,
+.error-enlace {
+  color: black;
+
+  font-weight: 700;
+  text-align: center;
+  margin: 4rem 0;
+}
+
+.error-enlace {
+  display: block;
+  margin-top: 4rem;
+  color: var(--primary);
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.error-enlace:hover {
+  text-decoration: underline;
+}

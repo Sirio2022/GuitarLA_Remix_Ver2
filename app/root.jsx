@@ -6,6 +6,7 @@ import {
   LiveReload,
   useRouteError,
   isRouteErrorResponse,
+  Link,
 } from '@remix-run/react';
 import { cssBundleHref } from '@remix-run/css-bundle';
 
@@ -58,16 +59,34 @@ export function links() {
 }
 
 /* Manejo de errores*/
-export function ErrorBoundry() {
+export function ErrorBoundary({children}) {
   const error = useRouteError();
   if (isRouteErrorResponse(error)) {
     return (
-      <div>
-        <h1>ERROR</h1>
-        <p>{error.status}</p>
-        <p>{error.statusText}</p>
-      </div>
+      <html lang="es">
+        <head>
+          <title>GuitarLA - Guitarra no encontrada</title>
+          <Meta />
+          <Links />
+        </head>
+        <body>
+          <Header />
+          <Outlet />
+          <div className="error">
+            <p>
+              {error.status} - {error.statusText}
+            </p>
+
+            <Link to="/" className="error-enlace">
+              Volver al inicio
+            </Link>
+          </div>
+          <Footer />
+          <Scripts />
+          <LiveReload />
+        </body>
+      </html>
     );
   }
-  return null;
+  return children;
 }
