@@ -1,0 +1,23 @@
+.post {
+    width: 100%;
+    max-width: 800px;
+    margin: 4rem auto;
+    padding: 0 20px;
+}
+
+.post .imagen {
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+}
+
+.post .fecha {
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--primary);
+}
+
+.post .texto {
+  
+    white-space: pre-wrap;
+}
