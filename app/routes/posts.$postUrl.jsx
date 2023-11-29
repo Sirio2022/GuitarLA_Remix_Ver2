@@ -38,13 +38,11 @@ export default function Post() {
   const post = useLoaderData();
 
   const { titulo, imagen, contenido, publishedAt } = post[0].attributes;
-  console.log(post);
 
   const texto = contenido
     .map((desc) => desc.children.map((descrip) => descrip.text))
-    .flat()
-    .join('\n');
-  console.log(texto);
+    .flat() // [[],[],[]] => []
+    .join('\n'); // [texto,texto,texto]
 
   return (
     <article className={`contenedor ${styles.post}`}>
