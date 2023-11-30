@@ -4,11 +4,11 @@ import styles from './styles.module.css';
 export default function guitarra({ guitarra }) {
   const { nombre, imagen, precio, descripcion, url } = guitarra;
 
-  const texto = descripcion.map((desc) => {
-    return desc.children.map((descrip) => {
-      return descrip.text;
-    });
-  });
+  const texto = descripcion
+    ?.map((desc) => desc.children.map((descrip) => descrip.text))
+    .flat()
+    .join('\n');
+
   return (
     <div className={`${styles.guitarra}`}>
       <img
