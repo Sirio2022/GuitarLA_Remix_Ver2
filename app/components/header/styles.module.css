@@ -24,6 +24,7 @@
 
 .header .navegacion {
     margin-top: 5rem;
+    display: flex;
 }
 
 @media (min-width: 768px) {
@@ -41,6 +42,11 @@
     padding: 1rem;
     transition-property: color;
     transition-duration: .3s;
+}
+
+.header .navegacion a:last-of-type,
+img {
+    width: 4rem;
 }
 
 .header .navegacion a:hover,
