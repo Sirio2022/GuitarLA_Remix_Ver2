@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-import { useLoaderData } from '@remix-run/react';
+import { useLoaderData, useOutletContext } from '@remix-run/react';
 import { getGuitarra } from '~/models/guitarras.server';
 import styles from '~/components/guitarra/styles.module.css';
 import Swal from 'sweetalert2';
@@ -37,10 +37,14 @@ export const meta = ({ data }) => {
 };
 
 export default function Guitarra() {
+
+  const { agregarAlCarrito} = useOutletContext();
+
+
   const [cantidad, setCantidad] = useState(0);
 
   const guitarra = useLoaderData();
-  console.log(guitarra);
+  
 
   const { nombre, imagen, precio, descripcion } = guitarra[0].attributes;
 
@@ -62,6 +66,8 @@ export default function Guitarra() {
       return;
     }
 
+
+
     const guitarraSeleccionada = {
       id: guitarra[0].id,
       imagen: imagen.data.attributes.url,
@@ -69,7 +75,8 @@ export default function Guitarra() {
       precio,
       cantidad,
     };
-    console.log(guitarraSeleccionada);
+    
+    agregarAlCarrito(guitarraSeleccionada);
 
 
   }

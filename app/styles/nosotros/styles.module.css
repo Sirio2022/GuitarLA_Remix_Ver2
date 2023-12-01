@@ -4,6 +4,10 @@
     gap: 5rem;
 }
 
+.nosotros .contenido img {
+    width: 100%;
+}
+
 @media (min-width: 768px) {
     .nosotros .contenido {
         grid-template-columns: repeat(2, 1fr);

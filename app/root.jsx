@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {
   Links,
   Meta,
@@ -15,24 +16,6 @@ import styles from '~/styles/index.css';
 
 import Header from '~/components/header/header';
 import Footer from './components/footer/footer';
-
-export default function App() {
-  return (
-    <html lang="es">
-      <head>
-        <Meta />
-        <Links />
-      </head>
-      <body>
-        <Header />
-        <Outlet />
-        <Footer />
-        <Scripts />
-        <LiveReload />
-      </body>
-    </html>
-  );
-}
 
 export function meta() {
   return [
@@ -58,8 +41,46 @@ export function links() {
   ];
 }
 
+export default function App() {
+  const [carrito, setCarrito] = useState([]);
+
+  const agregarAlCarrito = (guitarra) => {
+    if (carrito.some((item) => item.id === guitarra.id)) {
+      const carritoActualizado = carrito.map((item) => {
+        if (item.id === guitarra.id) {
+          item.cantidad = guitarra.cantidad;
+        }
+        return item;
+      });
+      setCarrito(carritoActualizado);
+    } else {
+      setCarrito([...carrito, guitarra]);
+    }
+  };
+
+  return (
+    <html lang="es">
+      <head>
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <Header />
+        <Outlet
+          context={{
+            agregarAlCarrito,
+          }}
+        />
+        <Footer />
+        <Scripts />
+        <LiveReload />
+      </body>
+    </html>
+  );
+}
+
 /* Manejo de errores*/
-export function ErrorBoundary({children}) {
+export function ErrorBoundary({ children }) {
   const error = useRouteError();
   if (isRouteErrorResponse(error)) {
     return (

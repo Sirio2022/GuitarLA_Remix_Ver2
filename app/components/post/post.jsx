@@ -12,11 +12,10 @@ export default function Post({ post }) {
   });
 
   return (
-    <articule className={styles.post}>
+    <article className={styles.post}>
       <img
         src={imagen.data.attributes.formats.small.url}
         alt={`Imagen post ${titulo}`}
-        className={styles.imagen}
       />
       <div className={styles.contenido}>
         <h3>{titulo}</h3>
@@ -26,6 +25,6 @@ export default function Post({ post }) {
           Leer más
         </Link>
       </div>
-    </articule>
+    </article>
   );
 }

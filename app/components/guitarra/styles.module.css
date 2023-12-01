@@ -1,14 +1,5 @@
-.guitarra {
-    display: grid;
-    grid-template-columns: 2fr 3fr;
-    gap: 1rem;
-    align-items: center;
-    max-width: 70rem;
-    margin: 0 auto;
-}
-
 .guitarra img {
-    width: 100%;
+   width: auto;
 }
 
 .guitarra .contenido {
@@ -89,4 +80,15 @@
 
 .formulario input[type='submit']:hover {
     background-color: var(--black);
+}
+
+@media (min-width: 768px) {
+    .guitarra {
+        display: grid;
+        grid-template-columns: 2fr 3fr;
+        gap: 1rem;
+        align-items: center;
+        max-width: 70rem;
+        margin: 0 auto;
+    }
 }
