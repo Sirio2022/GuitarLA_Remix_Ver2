@@ -21,8 +21,16 @@ export function meta() {
 
 export default function Carrito() {
   const [total, setTotal] = useState(0);
+  const [carrito, setCarrito] = useState([]);
 
-  const { carrito, actualizarCantidad, eliminarGuitarra } = useOutletContext();
+  const { actualizarCantidad, eliminarGuitarra } = useOutletContext();
+
+  useEffect(() => {
+    const carritoGuardado = localStorage.getItem('carrito');
+    if (carritoGuardado) {
+      setCarrito(JSON.parse(carritoGuardado));
+    }
+  }, []);
 
   useEffect(() => {
     const total = carrito.reduce(

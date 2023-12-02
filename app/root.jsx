@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import {
   Links,
   Meta,
@@ -42,7 +42,17 @@ export function links() {
 }
 
 export default function App() {
-  const [carrito, setCarrito] = useState([]);
+  const [carrito, setCarrito] = useState(() => {
+    if (typeof window !== 'undefined') {
+      const carritoLocal = window.localStorage.getItem('carrito');
+      return carritoLocal ? JSON.parse(carritoLocal) : [];
+    }
+    return [];
+  });
+
+  useEffect(() => {
+    window.localStorage.setItem('carrito', JSON.stringify(carrito));
+  }, [carrito]);
 
   const agregarAlCarrito = (guitarra) => {
     if (carrito.some((item) => item.id === guitarra.id)) {
@@ -84,7 +94,6 @@ export default function App() {
         <Outlet
           context={{
             agregarAlCarrito,
-            carrito,
             actualizarCantidad,
             eliminarGuitarra,
           }}

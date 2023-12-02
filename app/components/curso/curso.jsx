@@ -2,7 +2,6 @@ import styles from './styles.module.css';
 
 export default function Curso({ curso }) {
   const { contenido, imagen, titulo } = curso;
-  console.log(imagen.data.attributes.url);
 
   const texto = contenido
     ?.map((cont) => cont.children.map((text) => text.text))
