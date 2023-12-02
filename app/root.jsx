@@ -95,6 +95,7 @@ export default function App() {
           context={{
             agregarAlCarrito,
             actualizarCantidad,
+            carritoLS: carrito,
             eliminarGuitarra,
           }}
         />
