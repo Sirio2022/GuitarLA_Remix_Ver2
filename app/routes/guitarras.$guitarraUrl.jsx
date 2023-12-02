@@ -37,14 +37,11 @@ export const meta = ({ data }) => {
 };
 
 export default function Guitarra() {
-
-  const { agregarAlCarrito} = useOutletContext();
-
+  const { agregarAlCarrito } = useOutletContext();
 
   const [cantidad, setCantidad] = useState(0);
 
   const guitarra = useLoaderData();
-  
 
   const { nombre, imagen, precio, descripcion } = guitarra[0].attributes;
 
@@ -66,8 +63,6 @@ export default function Guitarra() {
       return;
     }
 
-
-
     const guitarraSeleccionada = {
       id: guitarra[0].id,
       imagen: imagen.data.attributes.url,
@@ -75,10 +70,8 @@ export default function Guitarra() {
       precio,
       cantidad,
     };
-    
+
     agregarAlCarrito(guitarraSeleccionada);
-
-
   }
 
   return (

@@ -58,6 +58,21 @@ export default function App() {
     }
   };
 
+  const actualizarCantidad = (guitarra) => {
+    const carritoActualizado = carrito.map((item) => {
+      if (item.id === guitarra.id) {
+        item.cantidad = guitarra.cantidad;
+      }
+      return item;
+    });
+    setCarrito(carritoActualizado);
+  };
+
+  const eliminarGuitarra = (id) => {
+    const carritoActalizado = carrito.filter((item) => item.id !== id);
+    setCarrito(carritoActalizado);
+  };
+
   return (
     <html lang="es">
       <head>
@@ -69,6 +84,9 @@ export default function App() {
         <Outlet
           context={{
             agregarAlCarrito,
+            carrito,
+            actualizarCantidad,
+            eliminarGuitarra,
           }}
         />
         <Footer />
