@@ -3,6 +3,22 @@ import { getPosts } from '~/models/posts.server';
 import Post from '~/components/post/post';
 import styles from '~/styles/blog/styles.module.css';
 
+export function meta() {
+  return [
+    {
+      title: 'GuitarLA - Blog',
+    },
+    {
+      name: 'description',
+      content: 'Blog - GuitarLA',
+    },
+    {
+      name: 'keywords',
+      content: 'GuitarLA,guitarra',
+    },
+  ];
+}
+
 export async function loader() {
   const respuesta = await getPosts();
 
